@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/myshop', [WebController::class, 'myshop'])->name('web.myshop');
+
+Route::resource('product_types', ProductTypeController::class);
 
 
 require __DIR__.'/auth.php';
